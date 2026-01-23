@@ -10,7 +10,6 @@ import ServiceDetail from "./pages/ServiceDetail";
 import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
 import SiteLayout from "./layouts/SiteLayout";
-import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
@@ -29,8 +28,6 @@ const App = () => (
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />
           </Route>
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
