@@ -104,7 +104,14 @@ export default function SiteHeader() {
                 ))}
               </div>
               <div className="mt-auto pt-6 border-t">
-                <Button variant="brand" className="w-full h-11 font-medium">
+                <Button 
+                  variant="brand" 
+                  className="w-full h-11 font-medium"
+                  onClick={() => {
+                    setIsOpen(false);
+                    window.location.href = "/contact";
+                  }}
+                >
                   Contact
                 </Button>
               </div>
