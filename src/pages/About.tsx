@@ -33,7 +33,7 @@ const AnimatedIntroText = ({ text }: { text: string }) => (
       fontWeight: 600,
       lineHeight: "1.9",
       background:
-        "linear-gradient(90deg, #0b4cff, #06b6d4, #1e40af, #0b4cff)",
+        "linear-gradient(90deg, #0b4cff, #4963f5, #1e40af, #0b4cff)",
       backgroundSize: "300% 300%",
       WebkitBackgroundClip: "text",
       WebkitTextFillColor: "transparent",
