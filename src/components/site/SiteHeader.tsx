@@ -27,43 +27,39 @@ export default function SiteHeader() {
     () =>
       cn(
         "text-sm font-medium text-muted-foreground transition-colors hover:text-foreground",
-        "relative py-2",
+        "relative py-2"
       ),
-    [],
+    []
   );
 
   const activeDesktopClass = useMemo(
     () =>
       "text-primary after:absolute after:inset-x-0 after:-bottom-1 after:h-0.5 after:rounded-full after:bg-primary",
-    [],
+    []
   );
-
-  const handleMenuClick = () => {
-    setIsOpen(false);
-  };
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024 && isOpen) {
-        setIsOpen(false);
-      }
+      if (window.innerWidth >= 1024 && isOpen) setIsOpen(false);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [isOpen]);
 
   return (
-    <div className="sticky top-0 z-50 w-full border-b bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
-      <div className="container flex h-16 items-center justify-between gap-4">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/90 backdrop-blur overflow-x-hidden">
+      
+      {/* ✅ container width safe — no horizontal scroll */}
+      <div className="max-w-7xl mx-auto px-4 flex h-20 items-center justify-between gap-4">
         
         {/* LOGO */}
-        <NavLink to="/" className="flex items-center gap-3">
+        <NavLink to="/" className="flex items-center gap-3 shrink-0">
           <LogoMark />
-          <LogoWordmark className="block max-w-[200px]" />
+          <LogoWordmark className="hidden sm:block max-w-[220px]" />
         </NavLink>
 
         {/* DESKTOP NAV */}
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => (
             <NavLink
               key={item.to}
@@ -77,15 +73,15 @@ export default function SiteHeader() {
           ))}
         </nav>
 
-        {/* DESKTOP CONTACT BUTTON ✅ */}
-        <div className="hidden lg:block">
+        {/* DESKTOP BUTTON */}
+        <div className="hidden lg:block shrink-0">
           <Button asChild variant="brand" size="sm">
             <NavLink to="/contact">Contact</NavLink>
           </Button>
         </div>
 
         {/* MOBILE MENU */}
-        <div className="lg:hidden">
+        <div className="lg:hidden shrink-0">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="brandOutline" size="icon">
@@ -93,18 +89,18 @@ export default function SiteHeader() {
               </Button>
             </SheetTrigger>
 
-            <SheetContent side="right" className="w-[320px] flex flex-col">
+            <SheetContent side="right" className="w-[300px] flex flex-col">
               <SheetHeader>
                 <SheetTitle className="flex items-center gap-3 border-b pb-4">
-                  <LogoMark />
+                  <LogoMark className="h-12" />
                   <span className="text-base font-semibold">
                     Durkkas Associates
                   </span>
                 </SheetTitle>
               </SheetHeader>
 
-              {/* MOBILE NAV LINKS */}
-              <div className="mt-6 grid gap-1">
+              {/* MOBILE NAV */}
+              <div className="mt-6 grid gap-2">
                 {navItems.map((item) => (
                   <Button
                     key={item.to}
@@ -117,7 +113,7 @@ export default function SiteHeader() {
                       end={item.to === "/"}
                       className="w-full px-4 text-sm font-medium"
                       activeClassName="bg-primary/10 text-primary border-l-2 border-primary"
-                      onClick={handleMenuClick}
+                      onClick={() => setIsOpen(false)}
                     >
                       {item.label}
                     </NavLink>
@@ -125,13 +121,10 @@ export default function SiteHeader() {
                 ))}
               </div>
 
-              {/* MOBILE CONTACT BUTTON ✅ */}
+              {/* MOBILE CONTACT */}
               <div className="mt-auto pt-6 border-t">
-                <Button asChild variant="brand" className="w-full h-11 font-medium">
-                  <NavLink
-                    to="/contact"
-                    onClick={() => setIsOpen(false)}
-                  >
+                <Button asChild variant="brand" className="w-full h-11">
+                  <NavLink to="/contact" onClick={() => setIsOpen(false)}>
                     Contact
                   </NavLink>
                 </Button>
@@ -140,6 +133,6 @@ export default function SiteHeader() {
           </Sheet>
         </div>
       </div>
-    </div>
+    </header>
   );
 }

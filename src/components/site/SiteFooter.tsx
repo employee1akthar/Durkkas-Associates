@@ -7,81 +7,64 @@ import {
 
 export default function SiteFooter() {
   return (
-    <footer className="bg-[#0b1d3a] text-gray-300">
-      <div className="w-full px-6 md:px-12 lg:px-20 py-14">
+    <footer className="bg-[#0b1d3a] text-gray-300 overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-5 md:px-8 lg:px-12 py-14">
 
-        {/* 3 COLUMN GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        {/* ✅ Responsive Grid */}
+        {/* mobile: 1 col */}
+        {/* small tablet: 2 col */}
+        {/* desktop: 3 col */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
-          {/* BRAND */}
-          <div>
+          {/* ================= BRAND ================= */}
+          <div className="sm:col-span-2 lg:col-span-1">
             <h3 className="text-xl font-bold text-white mb-4">
               Durkkas Associates
             </h3>
-            <p className="text-sm leading-relaxed text-gray-400">
+
+            <p className="text-sm leading-relaxed text-gray-400 max-w-md">
               Strategic guidance and compliance-driven solutions to help
               businesses grow with confidence and clarity.
             </p>
           </div>
 
-          {/* LINKS */}
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-4">
-              Quick Links
-            </h4>
+          {/* ================= LINKS ================= */}
+          <div className="grid grid-cols-2 gap-8">
+            
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-4">
+                Quick Links
+              </h4>
 
-            <ul className="space-y-2 text-sm">
-              <li><a href="/" className="hover:text-white">Home</a></li>
-              <li><a href="/about" className="hover:text-white">About</a></li>
-              <li><a href="/services" className="hover:text-white">Services</a></li>
-              <li><a href="/careers" className="hover:text-white">Career</a></li>
-              <li><a href="/contact" className="hover:text-white">Contact</a></li>
-            </ul>
+              <ul className="space-y-2 text-sm">
+                <li><a href="/" className="hover:text-white">Home</a></li>
+                <li><a href="/about" className="hover:text-white">About</a></li>
+                <li><a href="/services" className="hover:text-white">Services</a></li>
+                <li><a href="/careers" className="hover:text-white">Career</a></li>
+                <li><a href="/contact" className="hover:text-white">Contact</a></li>
+              </ul>
+            </div>
 
-            <h5 className="text-white font-semibold mt-6 mb-3">
-              Our Services
-            </h5>
-           <ul className="space-y-2 text-sm">
-  <li>
-    <a href="/services/remote-business-associate" className="hover:text-white">
-      Remote Business Associate
-    </a>
-  </li>
+            {/* Services */}
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-4">
+                Services
+              </h4>
 
-  <li>
-    <a href="/services/gst-itr-tds" className="hover:text-white">
-      GST / ITR / TDS Compliance
-    </a>
-  </li>
-
-  <li>
-    <a href="/services/company-formation" className="hover:text-white">
-      Company Formation & Compliance
-    </a>
-  </li>
-
-  <li>
-    <a href="/services/accounting-auditing" className="hover:text-white">
-      Accounting & Auditing
-    </a>
-  </li>
-
-  <li>
-    <a href="/services/payroll-compliance" className="hover:text-white">
-      Payroll & Statutory Compliance
-    </a>
-  </li>
-
-  <li>
-    <a href="/services/startup-mentorship" className="hover:text-white">
-      Startup Guidance & Mentorship
-    </a>
-  </li>
-</ul>
+              <ul className="space-y-2 text-sm">
+                <li><a href="/services/remote-business-associate" className="hover:text-white">RBA</a></li>
+                <li><a href="/services/gst-itr-tds" className="hover:text-white">GST / ITR / TDS</a></li>
+                <li><a href="/services/company-formation" className="hover:text-white">Company Formation</a></li>
+                <li><a href="/services/accounting-auditing" className="hover:text-white">Accounting</a></li>
+                <li><a href="/services/payroll-compliance" className="hover:text-white">Payroll</a></li>
+                <li><a href="/services/startup-mentorship" className="hover:text-white">Startup</a></li>
+              </ul>
+            </div>
 
           </div>
 
-          {/* ADDRESS + SOCIAL */}
+          {/* ================= CONTACT ================= */}
           <div>
             <h4 className="text-lg font-semibold text-white mb-4">
               Contact Details
@@ -95,7 +78,8 @@ export default function SiteFooter() {
               Tamil Nadu
             </p>
 
-            <div className="flex gap-4">
+            {/* ✅ Social Icons Wrap on Mobile */}
+            <div className="flex flex-wrap gap-4">
               <a href="https://facebook.com" target="_blank"
                 className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center hover:scale-110 transition">
                 <FaFacebookF className="text-white" />
@@ -120,7 +104,7 @@ export default function SiteFooter() {
 
         </div>
 
-        {/* BOTTOM BAR */}
+        {/* ================= BOTTOM BAR ================= */}
         <div className="border-t border-white/10 mt-12 pt-6 text-center text-sm text-gray-400">
           © 2026 Durkkas Innovations Pvt. Ltd. All rights reserved.
         </div>

@@ -173,7 +173,7 @@ const HeroCarousel = ({ images }: { images: string[] }) => {
   }, [images.length]);
 
   return (
-    <div style={{ position: "relative", height: "360px" }}>
+    <div style={{ position: "relative", height: "480px" }}>
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
@@ -184,7 +184,7 @@ const HeroCarousel = ({ images }: { images: string[] }) => {
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(34, 222, 247, 0.97)), url(${images[current]})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.55), rgba(58, 68, 212, 0.97)), url(${images[current]})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             display: "flex",

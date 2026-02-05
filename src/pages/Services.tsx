@@ -1,8 +1,12 @@
+"use client";
+
 import { usePageTitle } from "@/hooks/use-page-title";
 import { usePageLoader } from "@/hooks/use-page-loader";
 import { PageLoader } from "@/components/ui/loader";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import emailjs from "@emailjs/browser";
+import { useState } from "react";
 
 interface Service {
   title: string;
@@ -24,13 +28,69 @@ export default function Services() {
   const isLoading = usePageLoader();
   const navigate = useNavigate();
 
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState<any>({});
+  const [success, setSuccess] = useState(false);
+
   if (isLoading) return <PageLoader />;
+
+  // ===== VALIDATION =====
+  const validate = () => {
+    const e: any = {};
+    if (!form.name.trim()) e.name = "Name is required";
+    if (!form.email.trim()) e.email = "Email is required";
+    else if (!form.email.includes("@")) e.email = "Email must contain @";
+    if (!form.phone.trim()) e.phone = "Phone is required";
+    else if (!/^\d{10}$/.test(form.phone)) e.phone = "Phone must be exactly 10 digits";
+    if (!form.message.trim()) e.message = "Message is required";
+
+    setErrors(e);
+    return Object.keys(e).length === 0;
+  };
+
+  const handleChange = (key: string, value: string) => {
+    if (key === "phone") value = value.replace(/\D/g, "").slice(0, 10);
+    setForm({ ...form, [key]: value });
+  };
+
+  const handleSubmit = (ev: any) => {
+    ev.preventDefault();
+    setSuccess(false);
+
+    if (!validate()) return;
+
+    emailjs.send(
+      "service_yjgg3qf",
+      "template_2rpk2ue",
+      {
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        message: form.message,
+      },
+      "GE82Cqbt2o6SC-t37"
+    )
+    .then(() => {
+      setSuccess(true);
+      setForm({ name: "", email: "", phone: "", message: "" });
+    })
+    .catch((err) => {
+      console.error("EMAIL ERROR:", err);
+      alert("Email send failed — check console");
+    });
+  };
 
   return (
     <main className="bg-[#f7faff] overflow-hidden">
 
       {/* ================= HERO ================= */}
-      <section
+     <section
         className="relative h-[70vh] flex items-center justify-center text-center"
         style={{
           backgroundImage:
@@ -60,7 +120,9 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ================= INTRO BOXES ================= */}
+
+
+       {/* ================= INTRO BOXES ================= */}
       <section className="relative -mt-32 z-30">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
           {[
@@ -96,7 +158,7 @@ export default function Services() {
       </section>
 
       {/* ================= SERVICES GRID ================= */}
-      <section className="relative py-44 bg-white">
+       <section className="relative py-44 bg-white">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -142,40 +204,87 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ================= CTA ================= */}
-      <section
-        className="relative py-32"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(219,234,254,0.7), rgba(239,246,255,0.9)), url('/ass14.jpg')",
-          backgroundSize: "cover",
-        }}
-      >
-        <div className="max-w-xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="bg-white p-10 rounded-3xl shadow-2xl"
-          >
-            <h3 className="text-3xl font-bold mb-3">Quick Online Consultancy</h3>
-            <p className="text-gray-600 mb-8">
-              Speak with our experts and get structured business guidance.
-            </p>
+      {/* ================= CONSULTATION FORM ================= */}
+     <section className="relative py-32">
+  {/* ===== BACKGROUND IMAGE WITH BLUR ===== */}
+  <div
+    className="absolute inset-0 bg-cover bg-center filter blur-sm opacity-70"
+    style={{ backgroundImage: "url('/ass14.jpg')" }}
+  />
+  <div className="absolute inset-0 bg-blue-100/30" /> {/* optional overlay for better contrast */}
 
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <input className="border-b border-gray-400 focus:border-blue-600 outline-none py-2" placeholder="First Name" />
-                <input className="border-b border-gray-400 focus:border-blue-600 outline-none py-2" placeholder="Last Name" />
-              </div>
-              <input className="w-full border-b border-gray-400 focus:border-blue-600 outline-none py-2" placeholder="Email Address" />
-              <textarea rows={3} className="w-full border-b border-gray-400 focus:border-blue-600 outline-none py-2 resize-none" placeholder="Your Message" />
-              <button className="w-full py-3 bg-blue-700 text-white rounded-lg font-semibold hover:bg-blue-800 transition">
-                BOOK A CONSULTATION
-              </button>
-            </form>
-          </motion.div>
+  <div className="relative max-w-xl mx-auto px-6">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      className="bg-white p-10 rounded-3xl shadow-2xl relative z-10"
+    >
+      <h3 className="text-3xl font-bold mb-3">Quick Online Consultancy</h3>
+      <p className="text-gray-600 mb-8">
+        Speak with our experts and get structured business guidance.
+      </p>
+
+      <form onSubmit={handleSubmit} className="space-y-6">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <input
+              value={form.name}
+              onChange={(e) => handleChange("name", e.target.value)}
+              className="border-b border-gray-400 focus:border-blue-600 outline-none py-2 w-full"
+              placeholder="Name"
+            />
+            {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
+          </div>
+
+          <div>
+            <input
+              value={form.email}
+              onChange={(e) => handleChange("email", e.target.value)}
+              className="border-b border-gray-400 focus:border-blue-600 outline-none py-2 w-full"
+              placeholder="Email"
+            />
+            {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+          </div>
         </div>
-      </section>
+
+        <div>
+          <input
+            value={form.phone}
+            onChange={(e) => handleChange("phone", e.target.value)}
+            className="w-full border-b border-gray-400 focus:border-blue-600 outline-none py-2"
+            placeholder="Phone"
+            inputMode="numeric"
+          />
+          {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
+        </div>
+
+        <div>
+          <textarea
+            rows={3}
+            value={form.message}
+            onChange={(e) => handleChange("message", e.target.value)}
+            className="w-full border-b border-gray-400 focus:border-blue-600 outline-none py-2 resize-none"
+            placeholder="Your Message"
+          />
+          {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
+        </div>
+
+        <button className="w-full py-3 bg-blue-700 text-white rounded-lg font-semibold hover:bg-blue-800 transition">
+          BOOK A CONSULTATION
+        </button>
+
+        {success && (
+          <p className="text-green-600 font-semibold text-center mt-2">
+            ✅ Message submitted successfully
+          </p>
+        )}
+
+      </form>
+    </motion.div>
+  </div>
+</section>
+
     </main>
   );
 }

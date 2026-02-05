@@ -2,23 +2,28 @@ import { cn } from "@/lib/utils";
 
 export function LogoMark({ className }: { className?: string }) {
   return (
-    <div
-      aria-hidden
+    <img
+      src="/dalogo.jpg"
+      alt="Durkkas Associates Logo"
+      loading="eager"
+      decoding="async"
       className={cn(
-        "grid h-9 w-9 place-items-center rounded-xl border bg-secondary text-primary shadow-soft",
-        className,
+        "h-14 md:h-16 w-auto object-contain select-none",
+        className
       )}
-    >
-      <span className="text-sm font-semibold">DA</span>
-    </div>
+    />
   );
 }
 
 export function LogoWordmark({ className }: { className?: string }) {
   return (
     <div className={cn("leading-tight", className)}>
-      <p className="text-sm font-semibold tracking-tight">Durkkas Associates</p>
-      <p className="text-xs text-muted-foreground">Durkkas Innovations Pvt. Ltd.</p>
+      <p className="text-base font-bold tracking-tight">
+        Durkkas Associates
+      </p>
+      <p className="text-sm text-muted-foreground">
+        Durkkas Innovations Pvt. Ltd.
+      </p>
     </div>
   );
 }
