@@ -28,7 +28,7 @@ const cards = [
 export default function Accounting() {
   const [index, setIndex] = useState(0);
 
-  // Auto-slide for hero slides (if needed)
+  // Auto-slide for hero slides
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
@@ -78,18 +78,20 @@ export default function Accounting() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 items-center gap-12">
 
-            {/* LEFT IMAGE */}
+            {/* LEFT IMAGE with aspect ratio */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative"
+              className="relative w-full"
             >
-              <img
-                src="/services13.jpg"
-                alt="Payroll Services"
-                className="w-full h-64 md:h-[480px] object-cover rounded-3xl shadow-xl"
-              />
+              <div className="w-full aspect-w-4 aspect-h-3 md:aspect-h-4">
+                <img
+                  src="/account10.png"
+                  alt="Payroll Services"
+                  className="w-full h-full object-contain rounded-3xl shadow-xl"
+                />
+              </div>
             </motion.div>
 
             {/* RIGHT CONTENT CARD */}
@@ -157,25 +159,26 @@ export default function Accounting() {
               </p>
             </motion.div>
 
-            {/* RIGHT IMAGE */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              <img
-                src="/services14.jpg"
-                alt="Payroll Services"
-                className="w-full h-64 md:h-[420px] object-cover rounded-3xl shadow-xl"
-              />
-            </motion.div>
+            {/* RIGHT IMAGE with aspect ratio */}
+           <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative w-full"
+          >
+          <img
+             src="/account11.png"
+             alt="Payroll Services"
+            className="w-full max-h-90 md:max-h-106 object-contain rounded-3xl shadow-xl"
+  />
+</motion.div>
+
           </div>
         </div>
       </section>
 
       {/* ================= 3-CARD SECTION ================= */}
-      <section className="relative py-16 md:py-24 bg-white-500">
+      <section className="relative py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 grid sm:grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {cards.map((card, i) => (
             <motion.div

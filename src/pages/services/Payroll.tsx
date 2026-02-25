@@ -207,7 +207,7 @@ export default function Payroll() {
       {/* ================= IMAGE + CONTENT ================= */}
       <section className="py-16 md:py-24 max-w-7xl mx-auto px-6 grid md:grid-cols-2 items-center gap-12">
         <motion.img
-          src="/pay2.jpg"
+          src="/ass25.png"
           alt="Payroll Services"
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}

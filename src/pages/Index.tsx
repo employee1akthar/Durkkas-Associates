@@ -41,29 +41,53 @@ const Index = () => {
       </section>
 
       {/* ================= SERVICES ================= */}
-      <section className="features">
-        <h2>Our Professional Services</h2>
-        <p className="sub">
-          Reliable solutions designed for long-term business success.
-        </p>
+    <section className="premium-features">
 
-        <div className="card-grid">
-          <div className="card c1">
-            <h3>Auditing & Assurance</h3>
-            <p>Accurate audits ensuring transparency and compliance.</p>
-          </div>
+  <div className="timeline-line"></div>
 
-          <div className="card c2">
-            <h3>Business Consulting</h3>
-            <p>Strategic planning to scale and optimize operations.</p>
-          </div>
+  <h2 className="section-title">Our Professional Services</h2>
+  <p className="section-sub">
+    Reliable solutions designed for long-term business success.
+  </p>
 
-          <div className="card c3 animated">
-            <h3>Tax & Compliance</h3>
-            <p>Complete tax solutions with regulatory confidence.</p>
-          </div>
-        </div>
-      </section>
+  <div className="premium-grid">
+
+    <div className="premium-card">
+      <div className="circle"></div>
+      <div className="premium-box">
+        <h3>Auditing & Assurance</h3>
+        <p>Accurate audits ensuring transparency and compliance.</p>
+      </div>
+    </div>
+
+    <div className="premium-card">
+      <div className="circle"></div>
+      <div className="premium-box">
+        <h3>Business Consulting</h3>
+        <p>Strategic planning to scale and optimize operations.</p>
+      </div>
+    </div>
+
+    <div className="premium-card">
+      <div className="circle"></div>
+      <div className="premium-box">
+        <h3>Tax & Compliance</h3>
+        <p>Complete tax solutions with regulatory confidence.</p>
+      </div>
+    </div>
+
+    <div className="premium-card">
+      <div className="circle"></div>
+      <div className="premium-box">
+        <h3>Global Advisory</h3>
+        <p>Expanding your business footprint across international markets.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
 
       {/* ================= COMPANY PRIDE ================= */}
       <section className="about">
@@ -160,18 +184,33 @@ const Index = () => {
 }
 
 .primary {
-  background: #1d4ed8;
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
   color: #fff;
+  transition: transform 0.3s cubic-bezier(.17,.67,.83,.67),
+              box-shadow 0.3s ease,
+              background 0.3s ease;
 }
 
 .primary:hover {
-  box-shadow: 0 0 18px rgba(59,130,246,.8);
+  transform: translateY(-5px) scale(1.08);
+  box-shadow: 0 15px 30px rgba(59,130,246,0.7);
+  background: linear-gradient(135deg, #1d4ed8, #60a5fa);
+}
+.secondary {
+  background:  linear-gradient(135deg, #1e40af, #3b82f6);
+  border: 2px solid #3b82f6;
+  color: #fff;
+  transition: transform 0.3s cubic-bezier(.17,.67,.83,.67),
+              box-shadow 0.3s ease,
+              background 0.3s ease;
 }
 
-.secondary {
-  background: #fff;
-  color: #1d4ed8;
+.secondary:hover {
+ transform: translateY(-5px) scale(1.08);
+  box-shadow: 0 15px 30px rgba(59,130,246,0.7);
+  background: linear-gradient(135deg, #1d4ed8, #60a5fa);
 }
+
 
 .hero-image img {
   width: 260px;
@@ -183,71 +222,156 @@ const Index = () => {
 
 
 /* ================= FEATURES ================= */
-
-.features {
-  padding: 6rem 1.5rem;
+/* Container for timeline section */
+.premium-features {
+  position: relative;
+  padding: 100px 5% 150px; /* bottom padding for second row */
+  background: linear-gradient(135deg, #fff, #fff);
   text-align: center;
-  background: #f8fafc;
+  color: #212ddb;
+  overflow: visible; /* allow absolute items */
 }
 
-.features h2 {
-  font-size: 2.2rem;
-  margin-bottom: .75rem;
+/* Title styles */
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
-.sub {
-  color: #64748b;
-  margin-bottom: 3rem;
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
+.section-sub {
+  opacity: 0.8;
+  margin-bottom: 70px;
 }
 
-.card-grid {
-  max-width: 1100px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 2rem;
+
+
+/* Container for 4 cards in a row */
+.premium-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+  margin-top: 70px; /* space below timeline line */
+  flex-wrap: nowrap; /* no wrapping */
 }
 
-.card {
-  padding: 2.5rem 2rem;
-  border-radius: 18px;
+/* Each card container */
+.premium-card {
+  position: relative;
+  flex: 1 1 23%; /* 4 equal cards, leave some gap */
+  max-width: 23%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Circles above cards */
+.circle {
+  width: 22px;
+  height: 22px;
+  background: gold;
+  border-radius: 50%;
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  border: 2px solid rgba(255, 215, 0, 0.9);
+}
+
+/* Vertical dotted line from circle to card */
+.premium-card::before {
+  content: "";
+  position: absolute;
+  top: -25px; /* just below circle */
+  left: 50%;
+  transform: translateX(-50%);
+  height: 25px;
+  border-left: 2px dotted rgba(255, 215, 0, 0.7);
+  z-index: 1;
+}
+
+/* Card box styling */
+.premium-box {
+  background: #928bf1;
+  padding: 40px 25px;
+  border-radius: 12px;
+  border: 1px dashed rgba(255, 215, 0, 0.7);
+  min-height: 200px;
+  box-sizing: border-box;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  width: 100%;
   color: #fff;
-  transition: transform .4s;
+  text-align: left;
+  position: relative;
+  z-index: 1;
 }
 
-.card:hover {
+.premium-box h3 {
+  color: gold;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.premium-box p {
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+.premium-box:hover {
   transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(85, 72, 146, 0.98);
 }
 
-.c1 { background: linear-gradient(135deg,#2563eb,#1e3a8a); }
-.c2 { background: linear-gradient(135deg,#16a34a,#065f46); }
-.c3 {
-  background: linear-gradient(270deg,#7c3aed,#2563eb,#7c3aed);
-  background-size: 400% 400%;
-  animation: gradientMove 6s ease infinite;
+/* Responsive for smaller screens */
+@media (max-width: 900px) {
+  .premium-grid {
+    flex-wrap: wrap;
+  }
+  .premium-card {
+    max-width: 48%;
+    flex: 1 1 48%;
+    margin-bottom: 40px;
+  }
 }
 
-@keyframes gradientMove {
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+@media (max-width: 500px) {
+  .premium-card {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
 }
 
 
+.premium-features {
+  padding: 60px 6% 40px; /* reduce bottom padding */
+}
+
+.about {
+  padding: 30px 1.5rem;
+}
 /* ================= PRIDE ================= */
 
 .about {
   padding: 6rem 1.5rem;
   text-align: center;
   background: #fff;
+   margin-bottom: 60px;
 }
 
 .about h2 {
-  font-size: 2.2rem;
+  font-size: 2.8rem;
   margin-bottom: .75rem;
+  padding-bottom: 20px;
+
+}
+
+.about p {
+  font-size: 1.0rem;
+  margin-bottom: .75rem;
+  padding-bottom: 20px;
+
 }
 
 .pride-grid {
@@ -287,7 +411,7 @@ const Index = () => {
 }
 
 .pride-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-15px);
 }
 
 .pride-card h3 {

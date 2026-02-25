@@ -66,9 +66,10 @@ export default function Mentorship() {
     {/* SUBTEXT */}
     <motion.p
       initial={{ opacity: 0, y: 20 }}
+
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.7 }}
-      className="mt-6 text-yellow-400/90 text-sm md:text-lg"
+      className="mt-6 text-white/90 text-sm md:text-lg"
     >
       Strategic Guidance, Practical Mentorship & Scalable Growth Support
     </motion.p>

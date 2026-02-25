@@ -123,12 +123,23 @@ const SectionCard = ({ title, content, img, reverse }: SectionProps) => {
       <div
         style={{
           flex: 1,
-          minHeight: isStacked ? "220px" : "auto",
-          backgroundImage: `url(${img})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#f3f4f6",
         }}
-      />
+      >
+        <img
+          src={img}
+          alt={title}
+          style={{
+            width: isStacked ? "100%" : "100%",
+            height: isStacked ? "auto" : "100%",
+            objectFit: isStacked ? "contain" : "cover",
+            display: "block",
+          }}
+        />
+      </div>
     </motion.div>
   );
 };
@@ -221,13 +232,13 @@ export default function About() {
 
       <section style={{ padding: "80px 6%" }}>
         <div
-        style={{
-  maxWidth: "900px",
-  margin: "0 auto",
-  marginBottom: "80px",
-  padding: "0 12px",
-  textAlign: "center",
-}}
+          style={{
+            maxWidth: "900px",
+            margin: "0 auto",
+            marginBottom: "80px",
+            padding: "0 12px",
+            textAlign: "center",
+          }}
         >
           <AnimatedIntroText text="Durkkas Associates is a professional business support and consulting division of Durkkas Innovations Pvt. Ltd." />
         </div>
@@ -235,20 +246,20 @@ export default function About() {
         <SectionCard
           title="About Durkkas Innovations Pvt. Ltd."
           content="Durkkas Associates operates under Durkkas Innovations Pvt. Ltd., offering strategic business support to organizations of all sizes."
-          img="/ass4.jpg"
+          img="/about3.jpg"
         />
 
         <SectionCard
           title="What We Do"
           content="We offer comprehensive business solutions including accounting, auditing, taxation, payroll management, statutory compliance, and remote operational support to streamline your business operations."
-          img="/ass5.jpg"
+          img="/ass21.jpg"
           reverse
         />
 
         <SectionCard
           title="Our Approach"
           content="We combine experienced professionals, standardized workflows, and modern technology to deliver consistent outcomes."
-          img="/ass11.jpg"
+          img="/about1.jpg"
         />
 
         {/* ================= VISION & MISSION ================= */}

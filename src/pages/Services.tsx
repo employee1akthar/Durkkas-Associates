@@ -41,23 +41,53 @@ export default function Services() {
   if (isLoading) return <PageLoader />;
 
   // ===== VALIDATION =====
-  const validate = () => {
-    const e: any = {};
-    if (!form.name.trim()) e.name = "Name is required";
-    if (!form.email.trim()) e.email = "Email is required";
-    else if (!form.email.includes("@")) e.email = "Email must contain @";
-    if (!form.phone.trim()) e.phone = "Phone is required";
-    else if (!/^\d{10}$/.test(form.phone)) e.phone = "Phone must be exactly 10 digits";
-    if (!form.message.trim()) e.message = "Message is required";
+const validate = () => {
+  const e: any = {};
 
-    setErrors(e);
-    return Object.keys(e).length === 0;
-  };
+  // ===== Name validation =====
+  if (!form.name.trim()) e.name = "Name is required";
+  else if (form.name.length > 50)
+    e.name = "Name should not exceed 50 characters";
 
-  const handleChange = (key: string, value: string) => {
-    if (key === "phone") value = value.replace(/\D/g, "").slice(0, 10);
-    setForm({ ...form, [key]: value });
-  };
+  // ===== Email validation (single input, must end with @gmail.com) =====
+  if (!form.email.trim()) e.email = "Email is required";
+  else if (!/^[A-Za-z0-9._%+-]+@gmail\.com$/i.test(form.email))
+    e.email = "Email must be a valid Gmail address";
+
+  // ===== Phone validation (10 digits, start with 6/7/8/9 only) =====
+  if (!form.phone.trim()) e.phone = "Phone is required";
+  else if (!/^[6-9][0-9]{9}$/.test(form.phone))
+    e.phone = "Phone must be 10 digits and start with 6, 7, 8, or 9";
+
+  // ===== Message validation =====
+  if (!form.message.trim()) e.message = "Message is required";
+
+  setErrors(e);
+  return Object.keys(e).length === 0;
+};
+
+
+
+const handleChange = (key: string, value: string) => {
+
+  // ===== PHONE CONTROL =====
+  if (key === "phone") {
+    value = value.replace(/\D/g, "").slice(0, 10);
+
+    // First digit must be 6-9
+    if (value.length === 1 && !/[6-9]/.test(value)) {
+      return; // prevent typing 0-5
+    }
+  }
+
+  // ===== NAME CONTROL =====
+  if (key === "name") {
+    value = value.replace(/[^A-Za-z ]/g, "").slice(0, 50);
+  }
+
+  setForm({ ...form, [key]: value });
+};
+
 
   const handleSubmit = (ev: any) => {
     ev.preventDefault();
@@ -227,24 +257,31 @@ export default function Services() {
       <form onSubmit={handleSubmit} className="space-y-6">
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <input
-              value={form.name}
-              onChange={(e) => handleChange("name", e.target.value)}
-              className="border-b border-gray-400 focus:border-blue-600 outline-none py-2 w-full"
-              placeholder="Name"
-            />
-            {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
-          </div>
+   <div>
+  <input
+    value={form.name}
+    onChange={(e) => {
+      const value = e.target.value.replace(/[^A-Za-z ]/g, ""); // Alphabets only
+      if (value.length <= 50) {
+        handleChange("name", value); // Only update if <= 50
+      }
+    }}
+    className="border-b border-gray-400 focus:border-blue-600 outline-none py-2 w-full"
+    placeholder="Name"
+  />
+  {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
+</div>
+
+
 
           <div>
-            <input
-              value={form.email}
-              onChange={(e) => handleChange("email", e.target.value)}
-              className="border-b border-gray-400 focus:border-blue-600 outline-none py-2 w-full"
-              placeholder="Email"
-            />
-            {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+       <input
+         value={form.email}
+         onChange={(e) => handleChange("email", e.target.value)}
+         className="border-b border-gray-400 focus:border-blue-600 outline-none py-2 w-full"
+         placeholder="Email"
+        />
+        {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
           </div>
         </div>
 

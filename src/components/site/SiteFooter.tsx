@@ -41,7 +41,7 @@ export default function SiteFooter() {
                 <li><a href="/" className="hover:text-white">Home</a></li>
                 <li><a href="/about" className="hover:text-white">About</a></li>
                 <li><a href="/services" className="hover:text-white">Services</a></li>
-                <li><a href="/careers" className="hover:text-white">Career</a></li>
+                <li><a href="/careers" className="hover:text-white">Careers</a></li>
                 <li><a href="/contact" className="hover:text-white">Contact</a></li>
               </ul>
             </div>
@@ -80,22 +80,22 @@ export default function SiteFooter() {
 
             {/* ✅ Social Icons Wrap on Mobile */}
             <div className="flex flex-wrap gap-4">
-              <a href="https://facebook.com" target="_blank"
+              <a href="https://www.facebook.com/durkkasacademy/" target="_blank" rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center hover:scale-110 transition">
                 <FaFacebookF className="text-white" />
               </a>
 
-              <a href="https://linkedin.com" target="_blank"
+              <a href="https://www.linkedin.com/company/durkkasacademy/" target="_blank" rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center hover:scale-110 transition">
                 <FaLinkedinIn className="text-white" />
               </a>
 
-              <a href="https://instagram.com" target="_blank"
+              <a href="https://www.instagram.com/durkkasacademy/" target="_blank" rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-pink-600 flex items-center justify-center hover:scale-110 transition">
                 <FaInstagram className="text-white" />
               </a>
 
-              <a href="https://wa.me/919999999999" target="_blank"
+              <a href="https://wa.me/918838056560" target="_blank"
                 className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center hover:scale-110 transition">
                 <FaWhatsapp className="text-white" />
               </a>

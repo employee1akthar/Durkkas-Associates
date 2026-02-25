@@ -13,6 +13,7 @@ import CompanyFormation from "./pages/services/CompanyFormation";
 import Accounting from "./pages/services/Accounting";
 import Payroll from "./pages/services/Payroll";
 import Mentorship from "./pages/services/Mentorship";
+import NotFound from "./pages/NotFound";
 
 const App = () => (
   <BrowserRouter>
@@ -32,7 +33,9 @@ const App = () => (
 
         <Route path="/careers" element={<Careers />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
+     
     </Routes>
   </BrowserRouter>
 );
