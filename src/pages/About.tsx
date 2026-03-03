@@ -259,7 +259,7 @@ export default function About() {
         <SectionCard
           title="Our Approach"
           content="We combine experienced professionals, standardized workflows, and modern technology to deliver consistent outcomes."
-          img="/about1.jpg"
+          img="/payroll1.png"
         />
 
         {/* ================= VISION & MISSION ================= */}

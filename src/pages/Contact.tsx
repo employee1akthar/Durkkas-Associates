@@ -207,12 +207,20 @@ export default function Contact() {
               {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
             </div>
             <div>
+              <div className="flex justify-between items-center mb-2">
+                <label className="font-semibold text-gray-700">Message</label>
+                <span className="text-sm text-gray-500">{form.message.length}/700</span>
+              </div>
               <textarea
                 rows={4}
                 value={form.message}
-                onChange={(e) => handleChange("message", e.target.value)}
-                className="w-full p-4 rounded-xl border"
+                onChange={(e) => {
+                  let value = e.target.value;
+                  if (value.length <= 700) handleChange("message", value);
+                }}
+                className="w-full p-4 rounded-xl border resize-none"
                 placeholder="Message"
+                maxLength={700}
               />
               {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
             </div>

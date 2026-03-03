@@ -19,7 +19,7 @@ const services: Service[] = [
   { title: "GST / ITR / TDS Compliance", path: "/services/gst-itr-tds", image: "/ass13.jpg" },
   { title: "Company Formation & Compliance", path: "/services/company-formation", image: "/services2.jpg" },
   { title: "Accounting & Auditing", path: "/services/accounting-auditing", image: "/services3.jpg" },
-  { title: "Payroll & Statutory Compliance", path: "/services/payroll-compliance", image: "/services4.jpg" },
+  { title: "Payroll & Statutory Compliance", path: "/services/payroll-compliance", image: "/payroll2.png" },
   { title: "Startup Guidance & Mentorship", path: "/services/startup-mentorship", image: "/ass18.jpg" },
 ];
 

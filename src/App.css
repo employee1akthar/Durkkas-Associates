@@ -42,3 +42,9 @@
 }
    /* Index section  */
 
+/* Hide site header/footer for pages that need a clean fullscreen layout */
+.hide-site-header-footer .site-header,
+.hide-site-header-footer .site-footer {
+  display: none !important;
+}
+
