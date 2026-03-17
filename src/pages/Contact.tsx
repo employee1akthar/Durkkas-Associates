@@ -59,7 +59,7 @@ export default function Contact() {
     emailjs
       .send(
         "service_yjgg3qf",
-        "template_2rpk2ue",
+        "template_byrkhut",
         {
           name: form.name,
           email: form.email,
