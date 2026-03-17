@@ -78,7 +78,7 @@ export default function Payroll() {
 
       {/* ================= HERO ================= */}
       <section
-        className="relative h-[60vh] md:h-[70vh] flex items-center justify-center"
+        className="relative h-[56vh] md:h-[62vh] flex items-center justify-center"
         style={{
           backgroundImage: "url('/payroll.jpg')",
           backgroundSize: "cover",

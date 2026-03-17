@@ -27,7 +27,7 @@ export default function Gst() {
 
       {/* ================= HERO ================= */}
       <section
-        className="relative min-h-[60vh] flex items-center justify-center text-center overflow-hidden"
+        className="relative min-h-[56vh] flex items-center justify-center text-center overflow-hidden"
         style={{
           backgroundImage:
             "linear-gradient(rgba(15,23,42,0.6), rgba(37,99,235,0.6)), url('/gst4.jpg')",

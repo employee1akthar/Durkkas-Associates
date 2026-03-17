@@ -82,7 +82,7 @@ export default function Contact() {
     <main className="bg-white overflow-x-hidden">
 
       {/* HERO */}
-      <section className="relative min-h-[70vh] flex items-center justify-center text-center overflow-hidden">
+      <section className="relative min-h-[62vh] flex items-center justify-center text-center overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/contact2.jpg')" }} />
         <div className="absolute inset-0 bg-blue-900/70" />
 
@@ -96,9 +96,9 @@ export default function Contact() {
 
           <motion.div className="flex flex-wrap justify-center gap-5">
             {[
-              { Icon: FaFacebookF, color: "bg-blue-600", link: "https://www.facebook.com/durkkasacademy/" },
+              { Icon: FaFacebookF, color: "bg-blue-600", link: "https://www.facebook.com/durkkas.eseva/" },
               { Icon: FaLinkedinIn, color: "bg-blue-700", link: "https://www.linkedin.com/company/durkkasacademy/" },
-              { Icon: FaInstagram, color: "bg-pink-600", link: "https://www.instagram.com/durkkasacademy/" },
+              { Icon: FaInstagram, color: "bg-pink-600", link: "https://www.instagram.com/durkkas.eseva/" },
               { Icon: FaWhatsapp, color: "bg-green-500", link: "https://wa.me/918838056560" },
             ].map(({ Icon, color, link }, i) => (
               <motion.a
@@ -123,60 +123,79 @@ export default function Contact() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-6">
 
           {/* Corporate */}
-          <div className="bg-white rounded-3xl shadow-xl p-6 border-t-4 border-red-600">
-            <h3 className="text-xl font-bold mb-3 text-red-600">Corporate Address</h3>
+           <div className="bg-white rounded-3xl shadow-xl p-6 border-t-4 border-red-600">
+            <h3 className="text-xl font-bold mb-3 text-red-600">Register Office Address</h3>
             <p className="text-black-600 mb-6">
-              60, Karuppasamy Kovil Road,<br/>
-              Nadar Sivan Kovil South Gate Side,<br/>
+              58/2, MDR Nager North,<br/>
+              SBK College Road,<br/>
               Aruppukottai – 626101,<br/>
-              Virudhunagar District, Tamil Nadu
+              Virudhunagar District, Tamil Nadu <br/>
+              Landline Number :04566-359495
             </p>
-            <div className="rounded-2xl overflow-hidden h-[230px]">
+            <div className="relative w-full h-[230px] rounded-2xl overflow-hidden">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Durkkas+Innovations+Pvt.+Ltd,+58/2,+MDR+Nagar+North,+SBK+College+Road,+Chokkalingapuram,+Vasantham+Nagar,+Aruppukottai,+Tamil+Nadu+626101,+India"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute left-3 top-3 z-10 rounded-md bg-red-600 px-3 py-1.5 text-sm font-bold text-white shadow-lg hover:bg-red-700 transition"
+              >
+                Open in Google Maps -&gt;
+              </a>
               <iframe
-                src="https://www.google.com/maps?q=60,+Karuppasamy+Kovil+Road,+Aruppukottai,+TN&output=embed"
+                src="https://maps.google.com/maps?hl=en&q=Durkkas+Innovations+Pvt.+Ltd,+58/2,+MDR+Nagar+North,+SBK+College+Road,+Chokkalingapuram,+Vasantham+Nagar,+Aruppukottai,+Tamil+Nadu+626101,+India&t=&z=17&ie=UTF8&iwloc=B&output=embed"
                 className="w-full h-full border-0"
                 allowFullScreen
                 loading="lazy"
               />
             </div>
+
+
           </div>
 
-          {/* Head Office */}
-          <div className="bg-white rounded-3xl shadow-xl p-6 border-t-4 border-red-600">
-            <h3 className="text-xl font-bold mb-3 text-red-600">Head Office Address</h3>
-            <p className="text-black-600 mb-6">
-              58/2, MDR Nager North,<br/>
-              SBK College Road,<br/>
-              Aruppukottai – 626101,<br/>
-              Virudhunagar District, Tamil Nadu
-            </p>
- <div className="relative w-full h-[230px] rounded-2xl overflow-hidden">
-  <iframe
-    src="https://www.google.com/maps?q=58/2,+MDR+Nagar+North,+SBK+College+Road,+Chokkalingapuram,+Vasantham+Nagar,+Aruppukottai,+TN+626101&output=embed"
-    className="w-full h-full border-0"
-    allowFullScreen
-    loading="lazy"
-  />
-  {/* Red dot overlay */}
-  <div className="absolute top-[50%] left-[50%] w-4 h-4 bg-red-600 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+          {/* Register Office */}
+       <div className="bg-white rounded-3xl shadow-xl p-6 border-t-4 border-red-600">
+  <h3 className="text-xl font-bold mb-3 text-red-600">Branch Address</h3>
+
+  <p className="text-black-600 mb-6">
+    60, Karuppasamy Kovil Road,<br/>
+    Nadar Sivan Kovil South Gate Side,<br/>
+    Aruppukottai – 626101,<br/>
+    Virudhunagar District, Tamil Nadu <br/>
+    Mobile Number : 88380 56560
+  </p>
+
+  <div className="relative rounded-2xl overflow-hidden h-[230px]">
+    <a
+      href="https://www.google.com/maps/search/?api=1&query=Durkkas+Associates+Aruppukottai"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="absolute left-3 top-3 z-10 rounded-md bg-red-600 px-3 py-1.5 text-sm font-bold text-white shadow-lg hover:bg-red-700 transition"
+    >
+      Open in Google Maps -&gt;
+    </a>
+    <iframe
+      src="https://www.google.com/maps?q=Durkkas+Associates+Aruppukottai&output=embed"
+      className="w-full h-full border-0"
+      loading="lazy"
+      allowFullScreen
+    ></iframe>
+  </div>
 </div>
-
-
-          </div>
         </div>
       </section>
 
       {/* IMAGE + FORM */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 items-center">
-          <img src="/contact7.png" className="rounded-3xl shadow-2xl object-cover h-[420px] w-full" />
+          <img src="/contact9.png" className="rounded-3xl shadow-2xl object-cover h-[420px] w-full" />
           <form onSubmit={handleSubmit} className="bg-slate-50 rounded-3xl shadow-xl p-8 space-y-5">
             <h2 className="text-2xl font-bold">Send Us a Message</h2>
             <div>
               <input
                 value={form.name}
                 onChange={(e) => {
-                  let value = e.target.value.replace(/[^A-Za-z ]/g, "");
+                  // strip anything other than letters/spaces and drop leading spaces
+                  let value = e.target.value.replace(/[^A-Za-z ]/g, "").replace(/^\s+/, "");
                   if (value.length <= 50) handleChange("name", value);
                 }}
                 className="w-full p-4 rounded-xl border"
@@ -187,7 +206,10 @@ export default function Contact() {
             <div>
               <input
                 value={form.email}
-                onChange={(e) => handleChange("email", e.target.value)}
+                onChange={(e) => {
+                  let value = e.target.value.replace(/^\s+/, "");
+                  handleChange("email", value);
+                }}
                 className="w-full p-4 rounded-xl border"
                 placeholder="Email (must be @gmail.com)"
               />
@@ -197,7 +219,7 @@ export default function Contact() {
               <input
                 value={form.phone}
                 onChange={(e) => {
-                  let value = e.target.value.replace(/\D/g, "");
+                  let value = e.target.value.replace(/\D/g, "").replace(/^\s+/, "");
                   if (value.length <= 10) handleChange("phone", value);
                 }}
                 className="w-full p-4 rounded-xl border"
@@ -215,7 +237,7 @@ export default function Contact() {
                 rows={4}
                 value={form.message}
                 onChange={(e) => {
-                  let value = e.target.value;
+                  let value = e.target.value.replace(/^\s+/, "");
                   if (value.length <= 700) handleChange("message", value);
                 }}
                 className="w-full p-4 rounded-xl border resize-none"

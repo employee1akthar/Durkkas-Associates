@@ -32,7 +32,7 @@ export default function CompanyFormation() {
 
       {/* ================= HERO ================= */}
      <section
-  className="relative h-[70vh] flex items-center justify-center overflow-hidden"
+  className="relative h-[62vh] flex items-center justify-center overflow-hidden"
   style={{
     backgroundImage: "url('/services9.jpg')",
     backgroundSize: "cover",

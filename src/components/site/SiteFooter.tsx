@@ -17,16 +17,32 @@ export default function SiteFooter() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
           {/* ================= BRAND ================= */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            <h3 className="text-xl font-bold text-white mb-4">
-              Durkkas Associates
-            </h3>
+       <div className="sm:col-span-2 lg:col-span-1 flex items-start gap-3">
+  
+  {/* Logo */}
+  <img 
+    src="/dalogocrop.png" 
+    alt="Durkkas Associates Logo"
+    className="w-12 h-12 object-contain"
+  />
 
-            <p className="text-sm leading-relaxed text-gray-400 max-w-md">
-              Strategic guidance and compliance-driven solutions to help
-              businesses grow with confidence and clarity.
-            </p>
-          </div>
+  {/* Text Content */}
+  <div>
+    <h3 className="text-xl font-bold text-white mb-2">
+      Durkkas Associates
+    </h3>
+
+    <h6 className="text-sm font-semibold text-white mb-2">
+      Division of Durkkas Innovations Pvt. Ltd
+    </h6>
+
+    <p className="text-sm leading-relaxed text-gray-400 max-w-md">
+      Strategic guidance and compliance-driven solutions to help
+      businesses grow with confidence and clarity.
+    </p>
+  </div>
+
+</div>
 
           {/* ================= LINKS ================= */}
           <div className="grid grid-cols-2 gap-8">
@@ -80,7 +96,7 @@ export default function SiteFooter() {
 
             {/* ✅ Social Icons Wrap on Mobile */}
             <div className="flex flex-wrap gap-4">
-              <a href="https://www.facebook.com/durkkasacademy/" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.facebook.com/durkkas.eseva/" target="_blank" rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center hover:scale-110 transition">
                 <FaFacebookF className="text-white" />
               </a>
@@ -90,7 +106,7 @@ export default function SiteFooter() {
                 <FaLinkedinIn className="text-white" />
               </a>
 
-              <a href="https://www.instagram.com/durkkasacademy/" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.instagram.com/durkkas.eseva/" target="_blank" rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-pink-600 flex items-center justify-center hover:scale-110 transition">
                 <FaInstagram className="text-white" />
               </a>

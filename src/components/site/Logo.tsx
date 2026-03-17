@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 export function LogoMark({ className }: { className?: string }) {
   return (
     <img
-      src="/dalogo.jpg"
+      src="/dalogocrop.png"
       alt="Durkkas Associates Logo"
       loading="eager"
       decoding="async"
@@ -21,8 +21,8 @@ export function LogoWordmark({ className }: { className?: string }) {
       <p className="text-base font-bold tracking-tight">
         Durkkas Associates
       </p>
-      <p className="text-sm text-muted-foreground">
-        Durkkas Innovations Pvt. Ltd.
+      <p className="text-xs text-muted-foreground whitespace-nowrap">
+        Division of Durkkas Innovations Pvt. Ltd.
       </p>
     </div>
   );

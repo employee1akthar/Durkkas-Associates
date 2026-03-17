@@ -15,7 +15,7 @@ export default function Careers() {
     <main className="bg-gradient-to-br from-slate-50 to-white overflow-hidden">
 
       {/* ================= HERO ================= */}
-      <section className="relative h-[75vh] flex items-center justify-center">
+      <section className="relative h-[68vh] flex items-center justify-center">
         
         {/* Background Image */}
         <div

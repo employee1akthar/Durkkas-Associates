@@ -24,7 +24,7 @@ export default function Mentorship() {
 
       {/* ================= HERO ================= */}
 <section
-  className="relative h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden"
+  className="relative h-[56vh] md:h-[62vh] flex items-center justify-center overflow-hidden"
 >
   {/* ===== BACKGROUND IMAGE ===== */}
   <div

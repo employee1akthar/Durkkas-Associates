@@ -15,7 +15,7 @@ interface Service {
 }
 
 const services: Service[] = [
-  { title: "Remote Business Associate", path: "/services/remote-business-associate", image: "/services1.jpg" },
+  { title: "Remote Business Associate", path: "/services/remote-business-associate", image: "/payroll3.png" },
   { title: "GST / ITR / TDS Compliance", path: "/services/gst-itr-tds", image: "/ass13.jpg" },
   { title: "Company Formation & Compliance", path: "/services/company-formation", image: "/services2.jpg" },
   { title: "Accounting & Auditing", path: "/services/accounting-auditing", image: "/services3.jpg" },
@@ -69,6 +69,8 @@ const validate = () => {
 
 
 const handleChange = (key: string, value: string) => {
+  // drop leading spaces globally
+  value = value.replace(/^\s+/, "");
 
   // ===== PHONE CONTROL =====
   if (key === "phone") {
@@ -83,6 +85,11 @@ const handleChange = (key: string, value: string) => {
   // ===== NAME CONTROL =====
   if (key === "name") {
     value = value.replace(/[^A-Za-z ]/g, "").slice(0, 50);
+  }
+
+  // ===== MESSAGE CONTROL =====
+  if (key === "message") {
+    value = value.slice(0, 700); // hard cap to 700 chars
   }
 
   setForm({ ...form, [key]: value });
@@ -121,7 +128,7 @@ const handleChange = (key: string, value: string) => {
 
       {/* ================= HERO ================= */}
      <section
-        className="relative h-[70vh] flex items-center justify-center text-center"
+        className="relative h-[62vh] flex items-center justify-center text-center"
         style={{
           backgroundImage:
             "linear-gradient(rgba(15,23,42,0.55), rgba(37,99,235,0.75)), url('/services7.jpg')",
@@ -261,7 +268,7 @@ const handleChange = (key: string, value: string) => {
   <input
     value={form.name}
     onChange={(e) => {
-      const value = e.target.value.replace(/[^A-Za-z ]/g, ""); // Alphabets only
+      let value = e.target.value.replace(/[^A-Za-z ]/g, "").replace(/^\s+/, ""); // Alphabets only, no leading spaces
       if (value.length <= 50) {
         handleChange("name", value); // Only update if <= 50
       }
@@ -277,7 +284,7 @@ const handleChange = (key: string, value: string) => {
           <div>
        <input
          value={form.email}
-         onChange={(e) => handleChange("email", e.target.value)}
+         onChange={(e) => handleChange("email", e.target.value.replace(/^\s+/, ""))}
          className="border-b border-gray-400 focus:border-blue-600 outline-none py-2 w-full"
          placeholder="Email"
         />
@@ -288,7 +295,7 @@ const handleChange = (key: string, value: string) => {
         <div>
           <input
             value={form.phone}
-            onChange={(e) => handleChange("phone", e.target.value)}
+            onChange={(e) => handleChange("phone", e.target.value.replace(/^\s+/, ""))}
             className="w-full border-b border-gray-400 focus:border-blue-600 outline-none py-2"
             placeholder="Phone"
             inputMode="numeric"
@@ -297,13 +304,19 @@ const handleChange = (key: string, value: string) => {
         </div>
 
         <div>
+          <div>
           <textarea
             rows={3}
             value={form.message}
-            onChange={(e) => handleChange("message", e.target.value)}
+            onChange={(e) => handleChange("message", e.target.value.replace(/^\s+/, ""))}
             className="w-full border-b border-gray-400 focus:border-blue-600 outline-none py-2 resize-none"
             placeholder="Your Message"
+            maxLength={700}
           />
+          <div className="text-sm text-gray-500 mt-1 text-right">
+            {form.message.length}/700
+          </div>
+        </div>
           {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
         </div>
 

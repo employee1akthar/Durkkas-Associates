@@ -41,7 +41,7 @@ export default function Accounting() {
 
       {/* ================= HERO ================= */}
       <section
-        className="relative h-[60vh] md:h-[70vh] flex items-center justify-center"
+        className="relative h-[56vh] md:h-[62vh] flex items-center justify-center"
         style={{
           backgroundImage: "url('/services12.jpg')",
           backgroundSize: "cover",
